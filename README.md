@@ -14,7 +14,7 @@ O programa possui 2 tipos de usuário, o Administrador e o Bloqueado, o Administ
 ## Adições Futuras
 O projeto não está completo, faltam muitas coisas para finalizar 100%
 
-* Novas adições em breve *
+* * Novas adições em breve *
 * Comunicação com banco de dados em servidor PostgreSQL
 * Administrador poderá verificar a localização do dispositivo que estiver sobre controle do Administrador
 * Administrador poderá acessar as cameras e o audio do dispositivo que estiver sobre controle do Administrador
