@@ -21,3 +21,27 @@ O projeto não está completo, faltam muitas coisas para finalizar 100%
 * Administrador poderá acessar todo o histórico web do dispositivo que estiver sobre controle do Administrador
 * Administrador poderá acessar a galeria do dispositivo atual que estiver sobre controle do Administrador
 * Administrador poderá ter acesso a tela do dispositivo atual que estiver sobre controle do Administrador
+
+
+
+
+
+
+
+
+
+
+
+
+
+![1](https://imgbb.host/images/sZ6wq.jpeg)
+![2](https://imgbb.host/images/sZ7Ri.jpeg)
+![3](https://imgbb.host/images/sZLPV.jpeg)
+![4](https://imgbb.host/images/sZbLP.jpeg)
+![5](https://imgbb.host/images/sZ8pb.jpeg)
+![6](https://imgbb.host/images/sZme7.jpeg)
+![7](https://imgbb.host/images/sZtIu.jpeg)
+![8](https://imgbb.host/images/sZVgB.jpeg)
+![9](https://imgbb.host/images/sZTVr.jpeg)
+![10](https://imgbb.host/images/sZnxz.jpeg)
+![11](https://imgbb.host/images/sZS3K.jpeg)
