@@ -1,0 +1,31 @@
+<ListItemWithCheckbox>:
+    IconLeftWidget:
+        icon: root.icon
+
+<Tela_opcoes_principais>:
+    name: "tela_opcoes_principais"
+    MDFloatLayout:
+        orientation: "vertical"
+        # TOPO DA TELA
+        MDTopAppBar:
+            title: "Principal"
+            anchor_title: "left"
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x:app.voltar()]]
+            right_action_items: [["help", lambda x:root.ajuda()]]
+            
+        MDLabel:
+            text: "Sou preguiçoso, desejo configurações automáticas"
+            size_hint_y: None
+            halign: "center"
+            valign: "center"
+            height: 50
+            bold: True
+            size_hint_y: 0.1
+            size_hint_x: 0.8
+            pos_hint: {'center_x': 0.5, 'center_y': 0.85}
+        MDScrollView:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.35}
+            size_hint_y: 0.9
+            MDList:
+                id: container

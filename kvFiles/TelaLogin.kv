@@ -1,0 +1,147 @@
+
+<TelaLogin>
+    name: "tela_login"
+    FloatLayout:
+        FitImage:
+            id: logo_cespreita
+            opacity: 1
+            size_hint: 0.45, 0.28
+            source: 'img/espreita_logo.png'
+            pos_hint: {'center_x': 0.5, 'center_y':0.8}
+        
+        MDLabel:
+            id: nome_cespreita
+            size_hint: 0.77, None
+            font_name: 'fonts/goudy-old-style-italic.ttf'
+            pos_hint: {'center_x': 0.5, 'center_y':0.6}
+            text: "CEspreita"
+            font_size: '70dp'
+
+        MDTextField:
+            id: campo_usuario
+            hint_text: "Email, CPF ou número de celular"
+            font_size: '14dp'
+            bold: True
+            size_hint: 0.79, None
+            pos_hint: {"center_x": 0.5, "center_y": 0.46}
+            color_mode: "custom"
+            hint_text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+
+        MDIconButton:
+            id: account_logo
+            icon: "account"
+            pos_hint: {"center_x": 0.845, "center_y": 0.47}
+
+        MDTextField:
+            id: campo_senha
+            hint_text: "Senha"
+            font_size: '14dp'
+            size_hint: 0.79, None
+            pos_hint: {"center_x": 0.5, "center_y": 0.38}
+            on_focus: root.visualizar_textfield_clicar(self, self.focus)
+            theme_text_color: "Custom"
+            hint_text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+        MDIconButton:
+            id: show_hide_password_id
+            icon: "eye"
+            pos_hint: {"center_x": 0.845, "center_y": 0.39}
+            on_release: root.mostrar_senha()
+        
+        # MDFillRoundFlatButton:
+        #     id: botao_entrar
+        #     pos_hint: {"center_x": 0.5, "center_y": 0.2}
+        #     text: 'Entrar'
+        #     bold: True
+        #     font_name: "fonts/Poppins-Medium.ttf"
+        #     size_hint: .79, .065
+        #     elevation: 4
+        #     on_release:
+        #         root.login()
+        Button:
+            id: botao_entrar
+            text: 'Entrar'
+            bold: True
+            font_name: "fonts/Poppins-Medium.ttf"
+            size_hint: .79, .065
+            pos_hint: {"center_x": 0.5, "center_y": 0.2}
+            on_release:
+                root.login()
+            background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+            canvas.before:
+                Color:
+                    rgba: (0,.7,.7,1) if self.state=='normal' else (0,.7,.7,0.8)  # visual feedback of press
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [15,]
+        
+        MDTextButton:
+            id: botao_cadastrar
+            theme_text_color: 'Custom'
+            text_color: 1,0,0,1
+            size_hint: None, 0.05
+            text: 'Cadastre-se'
+            font_size: '16sp'
+            bold: True
+            pos_hint: {"center_x": 0.745, "center_y": 0.13}
+            on_release:
+                app.root.transition.direction = 'left'
+                app.root.current = "tela_cadastro"
+        MDLabel:
+            text: "Não possui uma conta?"
+            size_hint: 0.5, None
+            font_size: '16sp'
+            pos_hint: {"center_x": 0.385, "center_y": 0.13}
+        
+        
+        MDTextButton:
+            id: esqueci_a_senha
+            theme_text_color: 'Custom'
+            text_color: 1,0,0,1
+            size_hint: None, 0.05
+            text: 'Esqueci a senha'
+            bold: True
+            font_size: '16sp'
+            size_hint_x: 0.2
+            pos_hint: {"center_x": 0.74, "center_y": 0.32}
+
+
+
+<Info_bloqueado>
+    orientation: "vertical"
+    spacing: "3dp"
+    size_hint_y: None
+    height: "225dp"
+    MDTextField:
+        id: nome_blo
+        icon_right: "account"
+        hint_text: "Nome do bloqueado"
+        font_size: '16dp'
+        bold: True
+        size_hint: 1, None
+        
+    MDTextField:
+        id: idade_blo
+        icon_right: "account"
+        hint_text: "Idade do Bloqueado"
+        font_size: '16dp'
+        bold: True
+        size_hint: 1, None
+        
+    MDTextField:
+        id: usuario_adm
+        icon_right: "account"
+        hint_text: "Usuário do administrador"
+        font_size: '16dp'
+        bold: True
+        size_hint: 1, None
+    
+    MDTextField:
+        id: senha_adm
+        icon_right: "account-key"
+        hint_text: "Senha do administrador"
+        font_size: '14dp'
+        size_hint: 1, None
+        password: True

@@ -1,0 +1,144 @@
+<TelaCadastro>
+    name: 'tela_cadastro'
+    FloatLayout:
+        MDLabel:
+            id: label_cadastrar
+            text: "Cadastrar"
+            font_size: '50dp'
+            pos_hint: {"center_x": 0.72, "center_y": 0.93}
+            bold: True
+        MDIconButton:
+            icon: "arrow-left"
+            icon_size: "39sp"
+            pos_hint: {"center_x": 0.09, "center_y": 0.93}
+            on_release:
+                app.root.transition.direction = 'right'
+                app.root.current = 'tela_login'
+
+        MDTextField:
+            id: nome_adm
+            hint_text: "Nome do administrador"
+            font_size: '15dp'
+            bold: True
+            size_hint: 0.65, None
+            pos_hint: {"center_x": 0.5, "center_y": 0.83}
+            color_mode: "custom"
+            hint_text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+        
+        MDTextField:
+            id: data_aniversario_adm
+            hint_text: "Data de aniversário"
+            pos_hint: {"center_x": 0.5, "center_y": 0.73}
+            font_size: '15dp'
+            bold: True
+            size_hint: 0.65, None
+            max_text_length: 10
+            text: ''
+            color_mode: "custom"
+            hint_text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            
+        MDTextField:
+            id: cpf_cnpj_adm
+            hint_text: "CFP / CNPJ"
+            pos_hint: {"center_x": 0.5, "center_y": 0.63}
+            font_size: '15dp'
+            bold: True
+            size_hint: 0.65, None
+            max_text_length: 18
+            text: ''
+            color_mode: "custom"
+            hint_text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            
+        
+        MDTextField:
+            id: senha_adm
+            hint_text: "Senha do administrador"
+            pos_hint: {"center_x": 0.5, "center_y": 0.53}
+            max_text_length: 14
+            font_size: '15dp'
+            bold: True
+            size_hint: 0.65, None
+            color_mode: "custom"
+            hint_text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            
+        MDIconButton:
+            id: show_hide_password_id
+            icon: "eye"
+            pos_hint: {"center_x": 0.785, "center_y": 0.54}
+            on_release: root.mostrar_senha()
+            
+        MDTextField:
+            id: numero_celular_adm
+            hint_text: "Número de celular"
+            pos_hint: {"center_x": 0.5, "center_y": 0.43}
+            font_size: '15dp'
+            bold: True
+            size_hint: 0.65, None
+            on_focus: root.visualizar_textfield_clicar_numero(self, self.focus)
+            color_mode: "custom"
+            hint_text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+
+        MDTextField:
+            id: email_adm
+            hint_text: "Email"
+            pos_hint: {"center_x": 0.5, "center_y": 0.33}
+            font_size: '15dp'
+            bold: True
+            size_hint: 0.65, None
+            on_focus: root.visualizar_textfield_clicar_email(self, self.focus)
+            color_mode: "custom"
+            hint_text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+        
+        MDCheckbox:
+            size_hint: None, None
+            size: dp(48), dp(48)
+            active: False
+            pos_hint: {'center_x': .21, 'center_y': .22}
+        MDLabel:
+            text: "Receber noticias pelo Whatsapp"
+            font_size: '14dp'
+            pos_hint: {"center_x": 0.75, "center_y": 0.22}
+        
+        
+        MDCheckbox:
+            size_hint: None, None
+            size: dp(48), dp(48)
+            active: False
+            pos_hint: {'center_x': .21, 'center_y': .17}
+        MDLabel:
+            text: "Receber noticias por Email"
+            font_size: '14dp'
+            pos_hint: {"center_x": 0.75, "center_y": 0.17}
+    
+        
+        # MDFillRoundFlatButton:
+        #     text: "Cadastrar"
+        #     font_name: "fonts/Poppins-Medium.ttf"
+        #     size_hint: .79, .065
+        #     pos_hint: {"center_x": 0.5, "center_y": 0.11}  
+        #     on_release:
+        #         root.cadastrar()
+        #         app.root.transition.direction = 'right'
+        
+        Button:
+            text: "Cadastrar"
+            font_name: "fonts/Poppins-Medium.ttf"
+            size_hint: .79, .065
+            pos_hint: {"center_x": 0.5, "center_y": 0.11}  
+            on_release:
+                root.cadastrar()
+                app.root.transition.direction = 'right'
+            background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+            canvas.before:
+                Color:
+                    rgba: (0,.7,.7,1) if self.state=='normal' else (0,.7,.7,0.8)  # visual feedback of press
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [15,]

@@ -1,0 +1,30 @@
+
+<TelaTela>
+    name: "tela_tela"
+    MDFloatLayout:
+        # TELA DA BARRA LATERAL
+        MDTopAppBar:
+            title: "Tela"
+            anchor_title: "left"
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x:app.voltar()]]
+
+        MDRaisedButton:
+            id: button_show_menu
+            pos_hint: {'center_x': .5, 'center_y': .8}
+            text: 'Tela a ser assistida'
+            bold: True
+            on_release:
+                root.menu_open()
+        
+        MDBoxLayout:
+            size_hint: 0.8, 0.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            radius: 20
+            md_bg_color: 0.5, 0.5, 0.5, 1
+        
+        MDRaisedButton:
+            pos_hint: {'center_x': .5, 'center_y': .2}
+            text: 'Visualizar tela'
+            bold: True
+        

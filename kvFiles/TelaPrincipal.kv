@@ -1,0 +1,204 @@
+<DrawerClickableItem@MDNavigationDrawerItem>
+    ripple_alpha: 0
+    focus_color: 0,0,0,0
+    focus_behavior: False
+    _no_ripple_effect: False
+
+<DrawerLabelItem@MDNavigationDrawerItem>
+    focus_behavior: False
+    _no_ripple_effect: False
+<TelaPrincipal>
+    name: "tela_principal"
+    MDFloatLayout:
+        id: float_layout
+        md_bg_color: (1,1,1,1) if app.theme_cls.theme_style == 'Light' else (0.19,0.19,0.19,1)
+
+        FitImage:
+            id: logo_cespreita
+            radius: 40
+            # md_bg_color: (0.25,0.25,0.25,1) if app.theme_cls.theme_style == 'Light' else (1,1,1,1)
+            opacity: 1
+            source: 'img/espreita_logo.png'
+            pos_hint: {'center_x': 0.5, 'center_y':0.5}
+            padding: 0,20,0,0
+            size_hint_x: 0.55
+            size_hint_y: 0.35
+            
+
+        # TELA DA BARRA LATERAL
+        MDNavigationLayout:
+            MDTopAppBar:
+                id: topbar
+                title: "Inicio"
+                anchor_title: "left"
+                pos_hint: {"top": 1}
+                left_action_items: [["menu", lambda x:root.remove_widget()]]
+                elevation: 4
+                shadow_offset: 0, -8
+                shadow_softness: 4
+
+            MDTopAppBar:
+                id: theme_btn_id
+                size_hint_x: 0.5
+                pos_hint: {"top": 1, 'right': 1}
+                right_action_items: [["lightbulb-on-10", lambda x: root.theme_style()]]
+                elevation: 0
+                shadow_offset: 0, 0
+                shadow_softness: 0
+
+            MDNavigationDrawer:
+                id: nav_drawer
+                radius: (0, 16, 16, 0)
+                type: "modal"
+                elevation: 4
+                shadow_offset: 0, -8
+                shadow_softness: 4
+
+                MDNavigationDrawerMenu:
+
+                    MDNavigationDrawerHeader:
+                        id: topbar_menu
+                        title: "Menu"
+                        spacing: "4dp"
+                        padding: "12dp", 0, 0, "56dp"
+
+                    MDLabel:
+                        text: "Opções"
+                        padding: '19dp', 0, 0, '25dp'
+
+                    DrawerClickableItem:
+                        id: drawer_conf
+                        icon: "cog"
+                        theme_text_color: "Custom"
+                        text: "Configurações"
+                        text_color: (0,0,0,1) if app.theme_cls.theme_style == 'Light' else (1,1,1,1)
+                        selected_color: (0,0,0,1) if app.theme_cls.theme_style == 'Light' else (1,1,1,1)
+                        on_release:
+                            root.opcoes_configura()
+
+                    MDBoxLayout:
+                        id: drawer_conf1        # AVISOS
+                        adaptive_height: False
+                    MDBoxLayout:
+                        id: drawer_conf2        # TELA
+                        adaptive_height: False
+                    MDBoxLayout:
+                        id: drawer_conf3        # CONFIGURAÇÕES
+                        adaptive_height: False
+
+
+                    # DIVISOR
+                    MDNavigationDrawerDivider:
+
+                    DrawerClickableItem:
+                        icon: "block-helper"
+                        text: "Bloqueados"
+                        theme_text_color: "Custom"
+                        text_color: (0,0,0,1) if app.theme_cls.theme_style == 'Light' else (1,1,1,1)
+                        selected_color: (0,0,0,1) if app.theme_cls.theme_style == 'Light' else (1,1,1,1)
+                        elevation_normal: 0
+                        on_release:
+                            root.opcoes_bloqueados()
+                    
+                    MDBoxLayout:
+                        id: drawer_bloq1       # CADASTRO BLOQUEADOS
+                        adaptive_height: False
+                    MDBoxLayout:
+                        id: drawer_bloq4       # APLICATIVOS BLOQUEADOS
+                        adaptive_height: False
+                    MDBoxLayout:
+                        id: drawer_bloq3       # SITES BLOQUEADOS
+                        adaptive_height: False
+                    MDBoxLayout:
+                        id: drawer_bloq5       # LISTA
+                        adaptive_height: False
+                    MDBoxLayout:
+                        id: drawer_bloq2       # PRINCIPAL
+                        adaptive_height: False
+                    
+                    # DIVISOR
+                    MDNavigationDrawerDivider:
+
+
+                    DrawerClickableItem:
+                        icon: "account"
+                        text: "Conta"
+                        theme_text_color: "Custom"
+                        text_color: (0,0,0,1) if app.theme_cls.theme_style == 'Light' else (1,1,1,1)
+                        selected_color: (0,0,0,1) if app.theme_cls.theme_style == 'Light' else (1,1,1,1)
+                        on_release:
+                            root.opcoes_conta()
+                    
+                    MDBoxLayout:
+                        id: drawer_cont1       # CADASTRO ADM
+                        adaptive_height: False
+                    MDBoxLayout:
+                        id: drawer_cont2       # ALTERAR SENHA
+                        adaptive_height: False
+                    MDBoxLayout:
+                        id: drawer_cont3       # PLANO PAGAMENTO
+                        adaptive_height: False
+                        
+                        
+
+                    DrawerClickableItem:
+                        icon: "eye-settings"
+                        text: "Bisbilhotar"
+                        theme_text_color: "Custom"
+                        text_color: (0,0,0,1) if app.theme_cls.theme_style == 'Light' else (1,1,1,1)
+                        selected_color: (0,0,0,1) if app.theme_cls.theme_style == 'Light' else (1,1,1,1)
+                        on_release:
+                            root.opcoes_bisbilhotar()
+                    
+                    MDBoxLayout:
+                        id: drawer_bisb1       # LOCALIZAÇÂO
+                        adaptive_height: False
+                    MDBoxLayout:
+                        id: drawer_bisb2       # CAMERA + AUDIO
+                        adaptive_height: False
+                    MDBoxLayout:
+                        id: drawer_bisb3       # HISTORICO
+                        adaptive_height: False
+                    MDBoxLayout:
+                        id: drawer_bisb4       # GALERIA
+                        adaptive_height: False
+                    MDBoxLayout:
+                        id: drawer_bisb5       # PROGRAMAS INSTALADOS
+                        adaptive_height: False
+
+
+
+                    MDNavigationDrawerDivider:
+                        padding: '19dp', 0, 0, '15dp'
+
+                    MDLabel:
+                        text: "Sobre"
+                        padding: '23dp', '15dp', 0, '10dp'
+                    
+                    MDBoxLayout:
+                        adaptive_height: True
+                        MDRectangleFlatIconButton:
+                            ripple_scale: 0
+                            icon: "information-outline"
+                            text: "  25/03/2024 10.2.4"
+                            halign: 'left'
+                            icon_size: '22sp'
+                            padding: '18dp', '25dp', '153dp', '17dp'
+                            font_size: '17sp'
+                            size_hint: 1, 0.6
+                            bold: True
+                            line_color: app.theme_cls.bg_light
+                    MDBoxLayout:
+                        adaptive_height: True
+                        MDRectangleFlatIconButton:
+                            ripple_scale: 0
+                            icon: "information-outline"
+                            text: "  Checar Atualizações"
+                            halign: 'left'
+                            icon_size: '22sp'
+                            padding: '18dp', '10dp', '153dp', '17dp'
+                            font_size: '17sp'
+                            size_hint: 1, 1
+                            size_hint: 1, None
+                            bold: True
+                            line_color: app.theme_cls.bg_light

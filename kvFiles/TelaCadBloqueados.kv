@@ -1,0 +1,125 @@
+<CardItem>
+    id: cadastro_blo_card
+    size_hint_y: None
+    height: "180dp"
+    padding: "4dp"
+    radius: 32
+    shadow_offset: 0, -8
+    shadow_softness: 
+    color_mode: "custom"
+    theme_text_color: "Custom"
+    md_bg_color: (0.75,0.75,0.75,1) if app.theme_cls.theme_style == 'Light' else (0.3,0.3,0.3,1)
+    MDBoxLayout:
+        id: boxlayout
+        orientation: "vertical"
+        adaptive_height: True
+        spacing: "0dp"
+        padding: ("12dp", 0, 0, 0)
+        pos_hint: {"center_y": 0.5}
+
+        MDTextField:
+            id: text_field1
+            hint_text: "Nome"
+            bold: True
+            size_hint: 0.97, None
+            theme_text_color: "Custom"
+            hint_text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+        
+        MDTextField:
+            id: text_field2
+            hint_text: "Data de nascimento"
+            bold: True
+            size_hint: 0.97, None
+            max_text_length: 10
+            theme_text_color: "Custom"
+            hint_text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+            text_color_normal: (0.5, 0.5, 0.5, 1) if app.theme_cls.theme_style == 'Dark' else (0.3, 0.3, 0.3, 1)
+        
+        MDBoxLayout:
+            orientation: "horizontal"
+            adaptive_height: True
+            # Serve apenas para empurrar os widgets para a direita
+            
+            MDCheckbox:
+                id: checkbox_salvar_blo
+                size_hint: (None, None)
+                size: ("22dp", "48dp")
+                on_active: root.add_bloqueados(*args)
+                active: True
+
+            MDLabel:
+                pos_hint: {"center_x": 0.5}
+                text: "Ativar Bloqueado"
+
+            MDIconButton:
+                icon: 'account-edit'
+                pos_hint: {"center_x": 0.9}
+                size_hint: (0.2, None)
+                size: ("48dp", "48dp")
+                on_release: root.check_remove()
+
+            MDIconButton:
+                icon: 'trash-can-outline'
+                pos_hint: {"center_x": 0.9}
+                on_release: root.remove()
+
+
+
+    
+<Tela_CadBloqueados>
+    name: "tela_cadbloqueados"
+    MDFloatLayout:
+        id: float_layout
+        
+        MDFloatLayout:
+            size_hint: 1, 1
+            ScrollView:
+                size_hint_x: 0.95
+                size_hint_y: 0.91
+                pos_hint: {'center_x':0.5}
+                MDList:
+                    id: content
+                    padding: [0, 20, 0, 0]
+                    spacing: 10
+
+
+        # TELA DA BARRA LATERAL
+        MDTopAppBar:
+            title: "Cadastro dos Bloqueados"
+            anchor_title: "left"
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x:app.voltar()]]
+        
+
+        # MDRaisedButton:
+        #     id: background_bloq_button_window
+        #     size_hint: 0.1, 0.05
+        #     elevation: 0
+        #     pos_hint: {"top": 1}
+        #     padding: 25,20,0,0
+
+        # MDIconButton:
+        #     id: bloq_button_window
+        #     icon: 'block-helper'
+        #     theme_icon_color: "Custom"
+        #     icon_color: app.theme_cls.bg_light
+        #     opacity: 1
+        #     pos_hint: {"top": 1}
+        #     padding: 25,20,0,0
+
+        MDBoxLayout:
+            id: box
+            adaptive_size: True
+            pos_hint: {'center_x': 0.9, 'center_y':0.05}
+            MDFloatingActionButton:
+                icon: "plus"
+                type: "standard"
+                on_release:
+                    root.add_user_bloq()
+        
+        MDBoxLayout:
+            id: carregamento_layout
+            pos_hint: {'center_x': 0.5, 'center_y':0.5}
+            adaptive_height: True
+            adaptive_width: True

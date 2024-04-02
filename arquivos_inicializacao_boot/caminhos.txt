@@ -1,0 +1,4 @@
+AndroidManifest.tmpl.xml    /.buildozer/android.platform/dists/package_name/templates
+MyBroadcastReceiver.java    /.buildozer/android.platform/dists/package_name/src/main/java/package_name/package_name/package_name/package_name
+
+se o caminho do MyBroadcastReceiver estiver correto você vai encontrar um arquivo chamado ServiceMyservice.java se este arquivo estiver na pasta então você está no lugar correto

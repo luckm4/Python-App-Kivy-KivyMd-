@@ -1,0 +1,292 @@
+<ListaSites>
+    size_hint_y: None
+    height: "60dp"
+    padding: "4dp"
+    radius: 12
+
+
+<TelaSites_config>
+    name: 'sites_config'
+    MDBoxLayout:
+        orientation: 'vertical'  # Defina a orientação como vertical para manter a ordem
+        MDFloatLayout:
+            # TELA DA BARRA LATERAL
+            MDTopAppBar:
+                title: "Configurações do Site"
+                anchor_title: "left"
+                pos_hint: {"top": 1}
+                left_action_items: [["arrow-left", lambda x:root.voltar()]]
+
+            # Opção Bloqueado da janela de lista de aplicativos
+            MDBoxLayout:
+                adaptive_width: True
+                adaptive_height: True
+                size_hint_y: 0.08
+                # pos_hint: {"center_x": 0.22, "center_y": 0.85}
+                padding: 5,0,0,0
+                pos_hint: {"center_y": 0.85}
+                MDCheckbox:
+                    id: check_1
+                    size_hint: None, None
+                    size: "48dp", "48dp"
+                    on_release: root.checkbox_group(self)
+                MDLabel:
+                    padding: 0, "4dp", 0, 0
+                    text: "Bloqueado"
+                    adaptive_width: True
+
+            # Barra que sinaliza o espaço e a divisão dos grupos de widgets
+            MDBoxLayout:
+                size_hint: None, None
+                size: "320dp", "2dp"
+                pos_hint: {"center_x": 0.5, "center_y": 0.8}
+                MDCard:
+                    opacity: 0.2
+                    padding: 4
+
+            # Opção de numero de uso de horas
+            MDBoxLayout:
+                adaptive_width: True
+                size_hint_y: 0.08
+                padding: 5,0,0,0
+                pos_hint: {"center_y": 0.75}
+                MDCheckbox:
+                    id: check_2
+                    size_hint: None, None
+                    size: "48dp", "48dp"
+                    on_release: root.checkbox_group(self)
+                MDLabel:
+                    padding: 0, "4dp", 0, 0
+                    text: "Horas de uso"
+                    adaptive_width: True
+            MDRectangleFlatButton:
+                id: btn1
+                adaptive_width: True
+                pos_hint_y: 1
+                pos_hint: {"center_x": 0.55, "center_y": 0.747}
+                font_name: "fonts/Poppins-Medium.ttf"
+                on_release: root.setar_hora('btn1')
+
+            # Barra que sinaliza o espaço e a divisão dos grupos de widgets
+            MDBoxLayout:
+                size_hint: None, None
+                size: "320dp", "2dp"
+                pos_hint: {"center_x": 0.5, "center_y": 0.7}
+                MDCard:
+                    opacity: 0.2
+                    padding: 4
+
+            # Opção Liberar por horário da janela de lista de aplicativos
+            MDBoxLayout:
+                adaptive_width: True
+                size_hint_y: 0.08
+                padding: 5,0,0,0
+                pos_hint: {"center_y": 0.65}
+                MDCheckbox:
+                    id: check_3
+                    size_hint: None, None
+                    size: "48dp", "48dp"
+                    pos_hint_x: 0.01
+                    on_release: root.checkbox_group(self)
+                MDLabel:
+                    padding: 0, "4dp", 0, 0
+                    text: "Liberar por horário"
+                    adaptive_width: True
+                    width: "130dp"
+
+            # Opção do horário
+            MDBoxLayout:
+                id: layout_horario_1
+                adaptive_width: True
+                size_hint_y: 0.06
+                pos_hint: {"center_y": 0.55}
+                padding: 25,0,0,0
+                MDLabel:
+                    adaptive_width: True
+                    width: "85dp"
+                    halign: "center"
+                    text: "A partir de  "
+                MDRectangleFlatButton:
+                    id: btn2
+                    adaptive_height: True
+                    adaptive_width: True
+                    text: "07:00"
+                    font_name: "fonts/Poppins-Medium.ttf"
+                    on_release: root.setar_hora('btn2')
+                MDLabel:
+                    adaptive_width: True
+                    width: "35dp"
+                    halign: "center"
+                    text: "  as  "
+                MDRectangleFlatButton:
+                    id: btn3
+                    adaptive_height: True
+                    adaptive_width: True
+                    text: "07:00"
+                    font_name: "fonts/Poppins-Medium.ttf"
+                    on_release: root.setar_hora('btn3')
+
+            # Opção do horário 2
+            MDBoxLayout:
+                id: layout_horario_1
+                adaptive_width: True
+                size_hint_y: 0.06
+                pos_hint: {"center_y": 0.45}
+                padding: 25,0,0,0
+                MDLabel:
+                    adaptive_width: True
+                    width: "85dp"
+                    halign: "center"
+                    text: "A partir de  "
+                MDRectangleFlatButton:
+                    id: btn4
+                    adaptive_height: True
+                    adaptive_width: True
+                    text: "07:00"
+                    font_name: "fonts/Poppins-Medium.ttf"
+                    on_release: root.setar_hora('btn4')
+                MDLabel:
+                    adaptive_width: True
+                    width: "35dp"
+                    halign: "center"
+                    text: "  as  "
+                MDRectangleFlatButton:
+                    id: btn5
+                    adaptive_height: True
+                    adaptive_width: True
+                    text: "07:00"
+                    font_name: "fonts/Poppins-Medium.ttf"
+                    on_release: root.setar_hora('btn5')
+                    
+            # Opção do horário
+            MDBoxLayout:
+                id: layout_horario_1
+                adaptive_width: True
+                size_hint_y: 0.06
+                pos_hint: {"center_y": 0.35}
+                padding: 25,0,0,0
+                MDLabel:
+                    adaptive_width: True
+                    width: "85dp"
+                    halign: "center"
+                    text: "A partir de  "
+                MDRectangleFlatButton:
+                    id: btn6
+                    adaptive_height: True
+                    adaptive_width: True
+                    text: "07:00"
+                    font_name: "fonts/Poppins-Medium.ttf"
+                    on_release: root.setar_hora('btn6')
+                MDLabel:
+                    adaptive_width: True
+                    width: "35dp"
+                    halign: "center"
+                    text: "  as  "
+                MDRectangleFlatButton:
+                    id: btn7
+                    adaptive_height: True
+                    adaptive_width: True
+                    text: "07:00"
+                    font_name: "fonts/Poppins-Medium.ttf"
+                    on_release: root.setar_hora('btn7')
+                    
+            # Opção do horário
+            MDBoxLayout:
+                id: layout_horario_1
+                adaptive_width: True
+                size_hint_y: 0.06
+                pos_hint: {"center_y": 0.25}
+                padding: 25,0,0,0
+                MDLabel:
+                    adaptive_width: True
+                    width: "85dp"
+                    halign: "center"
+                    text: "A partir de  "
+                MDRectangleFlatButton:
+                    id: btn8
+                    adaptive_height: True
+                    adaptive_width: True
+                    text: "07:00"
+                    font_name: "fonts/Poppins-Medium.ttf"
+                    on_release: root.setar_hora('btn8')
+                MDLabel:
+                    adaptive_width: True
+                    width: "35dp"
+                    halign: "center"
+                    text: "  as  "
+                MDRectangleFlatButton:
+                    id: btn9
+                    adaptive_height: True
+                    adaptive_width: True
+                    text: "07:00"
+                    font_name: "fonts/Poppins-Medium.ttf"
+                    on_release: root.setar_hora('btn9')
+
+<Content_add_site>
+    orientation: "vertical"
+    spacing: "4dp"
+    size_hint_y: None
+    height: "110dp"
+    MDTextField:
+        id: text_field_1
+        hint_text: "URL do site (link do site)"
+        adaptive_height: True
+        font_name: "fonts/Poppins-Medium.ttf"
+        font_size: "14sp"
+        halign: "center"
+    MDTextField:
+        id: text_field_2
+        hint_text: "Nome do site"
+        text: ""
+        adaptive_height: True
+        font_name: "fonts/Poppins-Medium.ttf"
+        font_size: "14sp"
+        halign: "center"
+        
+
+<TelaSites_Bloq>
+    name: "sites_bloqueados"
+    MDFloatLayout:
+        md_bg_color: app.theme_cls.bg_light if app.theme_cls.theme_style == 'Light' else app.theme_cls.bg_dark
+        MDFloatLayout:
+            size_hint: 1, 0.95
+            MDSliverAppbar:
+                size_hint: 1, 1.35
+                MDSliverAppbarContent:
+                    id: content
+                    md_bg_color: app.theme_cls.bg_light if app.theme_cls.theme_style == 'Light' else app.theme_cls.bg_dark
+                    orientation: "vertical"
+                    padding: "15dp"
+                    spacing: "12dp"
+                    adaptive_height: True
+                
+        # TELA DA BARRA LATERAL
+        MDTopAppBar:
+            title: "Sites Bloqueados"
+            anchor_title: "left"
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x:root.update_configs()]]
+            right_action_items: [["account", lambda x:root.user_bloq_info()], ["help", lambda x: root.ajuda()]]
+        
+        MDTextField:
+            id: text_field_search
+            icon_right: "magnify"
+            hint_text: "Pesquisar aplicativo"
+            font_size: '16dp'
+            bold: True
+            size_hint: 0.79, None
+            pos_hint: {"center_x": 0.5, "center_y": 0.85}
+            on_text: root.get_text(self.text)
+            on_text_validate: root.search_item(self.text)
+
+        MDRaisedButton:
+            opacity: 0
+            size_hint: None, None
+            size: 50,40
+            pos_hint: {"center_x": 0.835, "center_y": 0.864}
+            on_release: root.pesquisar()
+        
+        MDFloatingActionButton:
+            icon: "plus"
+            pos_hint: {"center_x": 0.9, "center_y": 0.05}
+            on_release: root.add_site()

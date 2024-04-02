@@ -1,0 +1,81 @@
+
+<TelaAlerta>
+    name: "tela_alerta"
+    MDFloatLayout:
+        id: float_layout
+        size_hint: 1,1
+
+        # --- SWITCH PARA AVISAR --- #
+        MDBoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1,0.1
+            pos_hint: {"center_x": 0.5, "center_y": 0.84}
+            MDLabel:
+                padding: "20dp",0,"40dp",0
+                text: "Avisar 10 minutos antes do bloqueio"
+            MDSwitch:
+                adaptive_height: True
+                adaptive_width: True
+                on_active:
+                    root.option_1()
+            MDBoxLayout:
+                adaptive_height: True
+                size_hint: 0.15, 1
+
+        # --- SWITCH PARA AVISAR --- #
+        MDBoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1,0.1
+            pos_hint: {"center_x": 0.5, "center_y": 0.74}
+            MDLabel:
+                padding: "20dp",0,"40dp",0
+                text: "Exibir mensagem de bloqueio"
+            MDSwitch:
+                adaptive_height: True
+                adaptive_width: True
+                on_active:
+                    root.option_2()
+            MDBoxLayout:
+                adaptive_height: True
+                size_hint: 0.15, 1
+                
+        # --- SWITCH PARA AVISAR --- #
+        MDBoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1,0.1
+            pos_hint: {"center_x": 0.5, "center_y": 0.64}
+            MDLabel:
+                padding: "20dp",0,"40dp",0
+                text: "Alertar ao usuário quanto tempo resta de utilização"
+            MDSwitch:
+                adaptive_height: True
+                adaptive_width: True
+                on_active:
+                    root.option_3()
+            MDBoxLayout:
+                adaptive_height: True
+                size_hint: 0.15, 1
+                
+        # --- SWITCH PARA AVISAR --- #
+        MDBoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1,0.1
+            pos_hint: {"center_x": 0.5, "center_y": 0.54}
+            MDLabel:
+                padding: "20dp",0,"40dp",0
+                text: "Alertar quando o usuário tentar realizar uma atividade bloqueada"
+            MDSwitch:
+                adaptive_height: True
+                adaptive_width: True
+                on_active:
+                    root.option_4()
+            MDBoxLayout:
+                adaptive_height: True
+                size_hint: 0.15, 1
+            
+
+        MDTopAppBar:
+            title: "Avisos"
+            anchor_title: "left"
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x:app.voltar()]]
